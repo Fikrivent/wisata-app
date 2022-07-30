@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('diskon', function (Blueprint $table) {
-            $table->id();
+        Schema::create('diskons', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama',60);
+            $table->integer('persen_diskon');
+            $table->date('tgl_awal_berlaku');
+            $table->date('tgl_akhir_berlaku');
+            $table->integer('min_tiket');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diskon');
+        Schema::dropIfExists('diskons');
     }
 };

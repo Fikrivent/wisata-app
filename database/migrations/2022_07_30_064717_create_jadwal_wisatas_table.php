@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_has_wisata', function (Blueprint $table) {
-            $table->unsignedInteger('id_jadwal');
-            $table->unsignedInteger('id_wisata');
+        Schema::create('jadwal_wisatas', function (Blueprint $table) {
+            $table->integer('id_jadwal')->unsigned();
+            $table->integer('id_wisata')->unsigned();
             $table->integer('kuota');
             $table->integer('tarif');
 
-            $table->foreign('id_jadwal')->references('id')->on('jadwal');
-            $table->foreign('id_wisata')->references('id')->on('wisata');
+            $table->foreign('id_jadwal')->references('id')->on('jadwals');
+            $table->foreign('id_wisata')->references('id')->on('wisatas');
+
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwal_has_wisata');
+        Schema::dropIfExists('jadwal_wisatas');
     }
 };
