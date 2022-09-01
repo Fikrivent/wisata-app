@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Montana</title>
+    <title>@yield('title-bar')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('montana-master/img/favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('montana-master/img/logo-kediri.svg') }}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -110,9 +110,7 @@
     <!--================Blog Area =================-->
     <section class="blog_area section-padding">
         <div class="container">
-            <div class="row">
                 @yield('content')
-            </div>
         </div>
     </section>
     <!--================Blog Area =================-->
@@ -170,7 +168,7 @@
                     <div class="col-xl-8 col-md-7 col-lg-9">
                         <p class="copy_right">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas Pariwisata Kota Kediri
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-xl-4 col-md-5 col-lg-3">
