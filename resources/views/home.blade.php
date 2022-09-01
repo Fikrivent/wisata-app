@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>Montana Resort</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
+                                <h3>Selamat Datang !</h3>
+                                <p>Nikmati destinasi wisata yang tersebar di kawasan Kota Kediri</p>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
         <div class="container-xl">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <center><h2>WISATA FAVORIT</h2></center>
+                    <center><h2>DESTINASI WISATA FAVORIT</h2></center>
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Carousel indicators -->
                         <ol class="carousel-indicators">
