@@ -12,6 +12,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('montana-master/img/logo-kediri.svg') }}">
     <!-- Place favicon.ico in the root directory -->
 
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('montana-master/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('montana-master/css/owl.carousel.min.css') }}">
@@ -47,6 +51,7 @@
                                         <li><a href="#">Layanan <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Pesan Tiket</a></li>
+                                                <li><a href="blog.html">Rekomendasi Wisata</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Tentang Kami <i class="ti-angle-down"></i></a>
@@ -101,20 +106,14 @@
     </header>
     <!-- header-end -->
 
-    <!-- bradcam_area_start -->
+    {{-- <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg">
         <h3>@yield('judul')</h3>
     </div>
-    <!-- bradcam_area_end -->
+    <!-- bradcam_area_end --> --}}
     
-    <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
-        <div class="container">
-                @yield('content')
-        </div>
-    </section>
-    <!--================Blog Area =================-->
-
+    @yield('content')
+    
     <!-- footer -->
     <footer class="footer">
         <div class="footer_top">
