@@ -12,8 +12,9 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>Selamat Datang !</h3>
-                                <p>Nikmati destinasi wisata yang tersebar di kawasan Kota Kediri</p>
+                                <h3>Ayo Eksplor Kediri, Dulur !</h3>
+                                <br>
+                                <p>Selamat Datang di Portal Wisata Kota Kediri</p>
                             </div>
                         </div>
                     </div>
@@ -24,32 +25,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>Life is Beautiful</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text text-center">
-                                <h3>Montana Resort</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center justify-content-center slider_bg_2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text text-center">
-                                <h3>Life is Beautiful</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
+                                <h3>Apa kata mereka tentang Kediri ?</h3>
+                                <br>
+                                <p>"Sebuah kota dengan keunikan tersendiri yang menyajikan beragam nuansa<br> untuk menghibur dan menghilangkan sejenak lelah dan penat yang bertumpuk di punggung kita"</p>
+                                <p><i>-Arman Nur Cahyono(Data Support Operator PT Sampoerna Tbk.)</i></p>
                             </div>
                         </div>
                     </div>
