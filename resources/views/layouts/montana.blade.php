@@ -75,24 +75,24 @@
                                 <div class="socail_links">
                                     <ul>
                                         <li>
-                                            <a href="#">
+                                            <a href="https://id-id.facebook.com/kominfokabkediri" target="_blank" rel="noopener noreferrer">
                                                 <i class="fa fa-facebook-square"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="https://twitter.com/kominfokabkdr" target="_blank" rel="noopener noreferrer">
                                                 <i class="fa fa-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="https://www.instagram.com/dinaskominfo_kedirikab" target="_blank" rel="noopener noreferrer">
                                                 <i class="fa fa-instagram"></i>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="popup-with-form" href="#test-form">Book A Room</a>
+                                    <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -164,17 +164,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas
                         <div class="socail_links">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://id-id.facebook.com/kominfokabkediri" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-facebook-square"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://twitter.com/kominfokabkdr" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/dinaskominfo_kedirikab" target="_blank" rel="noopener noreferrer">
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
