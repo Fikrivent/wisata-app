@@ -13,8 +13,8 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="{{ asset('montana-master/fonts/cardo.css') }}" rel="stylesheet">
+	<link href="{{ asset('montana-master/fonts/josefin.css') }}" rel="stylesheet">
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('montana-master/css/bootstrap.min.css') }}">
@@ -46,8 +46,8 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Beranda</a></li>
-                                        <li><a href="index.html">Wisata</a></li>
+                                        <li><a href="http://127.0.0.1:8000/">Beranda</a></li>
+                                        <li><a href="http://127.0.0.1:8000/wisata">Wisata</a></li>
                                         <li><a href="#">Layanan <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Pesan Tiket</a></li>
@@ -122,38 +122,28 @@
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                address
+                                Alamat Kantor
                             </h3>
-                            <p class="footer_text"> 200, Green road, Mongla, <br>
-                                New Yor City USA</p>
-                            <a href="#" class="line-button">Get Direction</a>
+                            <p class="footer_text">Jl. Erlangga No.1, Ngadirejo, Kec. Kota, Kota Kediri, Jawa Timur 64129</p>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Reservation
+                                Hubungi Kami
                             </h3>
-                            <p class="footer_text">+10 367 267 2678 <br>
-                                reservation@montana.com</p>
+                            <p class="footer_text">
+                                <i class="fa fa-phone"> (0354) 691776</i>
+                            </p>
+                            <p class="footer_text">
+                                <i class="fa fa-envelope"> disparbud@kedirikab.go.id</i>
+                            </p>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
+                    <div class="col-xl-6 col-md-6 col-lg-4">
                         <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Navigation
-                            </h3>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Rooms</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">News</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="footer_widget">
-                            <img src="{{ asset('montana-master/img/logo-g20.png') }}" width="100px;">
+                            <img src="{{ asset('montana-master/img/jawa-timur.svg') }}" width="100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="{{ asset('montana-master/img/logo-g20.png') }}" width="100px;">&nbsp;
                             <img src="{{ asset('montana-master/img/visit-indo.png') }}" width="150px;">
                         </div>
                     </div>
@@ -240,6 +230,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas
 
         });
     </script>
+
+    @yield('js')
 
 </body>
 
