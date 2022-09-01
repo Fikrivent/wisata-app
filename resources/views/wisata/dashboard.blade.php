@@ -1,6 +1,6 @@
 @extends('layouts.montana')
 
-@section('title-bar','Home Page')
+@section('title-bar','Destinasi Wisata')
 @section('judul','Destinasi Wisata di Sekitar Kota Kediri')
 
 @section('content')

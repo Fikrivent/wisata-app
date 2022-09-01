@@ -82,18 +82,21 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <span class="form-label">Waktu Kunjungan </span>
+                                    <span class="form-label">Rencana Jadwal Kunjungan</span>
+                                    {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
                                     <select class="form-control">
-                                        <option>07.00 - 12.00</option>
-                                        <option>12.00 - 17.00</option>
-                                        <option>17.00 - 21.00</option>
+                                        <option>Senin, 19 Agustus 2022 (Jam 07.00 - 12.00)</option>
+                                        <option>Senin, 19 Agustus 2022 (Jam 12.00 - 17.00)</option>
+                                        <option>Senin, 19 Agustus 2022 (Jam 17.00 - 21.00)</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Dewasa)</span>
                                     <select class="form-control">
@@ -104,7 +107,7 @@
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Anak)</span>
                                     <select class="form-control">
@@ -115,9 +118,9 @@
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-btn">
-                                    <button class="submit-btn">Cek Ketersediaan</button>
+                                    <button class="submit-btn glow-button">Cek Ketersediaan</button>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +163,7 @@
                             <div class="carousel-item active">
                                 <div class="single_offers" style="margin-bottom: 50px;">
                                     <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
                                     </div>
                                     <h3><b>Simpang Lima Kediri</b></h3>
                                     <h4>Harga Tiket : Rp. 5000</h4>
@@ -172,7 +175,7 @@
                             <div class="carousel-item">
                                 <div class="single_offers" style="margin-bottom: 50px;">
                                     <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
                                     </div>
                                     <h3><b>Simpang Lima Kediri</b></h3>
                                     <h4>Harga Tiket : Rp. 15000</h4>
@@ -184,7 +187,7 @@
                             <div class="carousel-item">
                                 <div class="single_offers" style="margin-bottom: 50px;">
                                     <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
                                     </div>
                                     <h3><b>Simpang Lima Kediri</b></h3>
                                     <h4>Harga Tiket : Rp. 10000</h4>
@@ -234,7 +237,7 @@
                         <div class="row align-items-center justify-content-center">
                             <div class="col-xl-6 col-md-6">
                                 <div class="Query_text">
-                                    <p>Ingin Memesan Tiket Masif ?</p>
+                                    <p>Perlu Memesan Tiket Masif ?</p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-6">
