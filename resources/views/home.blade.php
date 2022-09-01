@@ -65,50 +65,48 @@
             <div class="row">
                 <div class="booking-form">
                     <div class="form-header">
-                        <h1>Make your reservation</h1>
+                        <h2>Pesan Tiket Kunjungan Wisata</h2>
                     </div>
                     <form>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <span class="form-label">Check In</span>
-                                    <input class="form-control" type="date" required>
-                                </div>
-                                <span class="in-out hidden-xs hidden-sm">&#8652;</span>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <span class="form-label">Check out</span>
-                                    <input class="form-control" type="date" required>
+                                    <span class="form-label">Destinasi Wisata</span>
+                                    {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
+                                    <select class="form-control">
+                                        <option>Simpang Lima</option>
+                                        <option>Simpang Lima</option>
+                                        <option>Simpang Lima</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <span class="form-label">No of rooms</span>
+                                    <span class="form-label">Waktu Kunjungan </span>
                                     <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                        <option>07.00 - 12.00</option>
+                                        <option>12.00 - 17.00</option>
+                                        <option>17.00 - 21.00</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <span class="form-label">Adults</span>
+                                    <span class="form-label">Jumlah Tiket(Dewasa)</span>
                                     <select class="form-control">
+                                        <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
-                                        <option>3</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <span class="form-label">Children</span>
+                                    <span class="form-label">Jumlah Tiket(Anak)</span>
                                     <select class="form-control">
                                         <option>0</option>
                                         <option>1</option>
@@ -119,7 +117,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-btn">
-                                    <button class="submit-btn">Check availability</button>
+                                    <button class="submit-btn">Cek Ketersediaan</button>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +128,7 @@
     </section>
     <!-- Order Ticket End -->
 
-    <!-- video_area_start -->
+    {{-- <!-- video_area_start -->
     <div class="video_area video_bg overlay">
         <div class="video_area_inner text-center">
             <span>Montana Sea View</span>
@@ -141,7 +139,91 @@
             </a>
         </div>
     </div>
-    <!-- video_area_end -->
+    <!-- video_area_end --> --}}
+
+    
+    {{-- Slider Carousel --}}
+    <section class="blog_area">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <center><h2>WISATA FAVORIT</h2></center>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Carousel indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>   
+                        <!-- Wrapper for carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="single_offers" style="margin-bottom: 50px;">
+                                    <div class="about_thumb" style="margin-bottom: 10px;">
+                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                    </div>
+                                    <h3><b>Simpang Lima Kediri</b></h3>
+                                    <h4>Harga Tiket : Rp. 5000</h4>
+                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
+                                    <br>
+                                    <a href="#" class="book_now">Pesan Tiket</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="single_offers" style="margin-bottom: 50px;">
+                                    <div class="about_thumb" style="margin-bottom: 10px;">
+                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                    </div>
+                                    <h3><b>Simpang Lima Kediri</b></h3>
+                                    <h4>Harga Tiket : Rp. 15000</h4>
+                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
+                                    <br>
+                                    <a href="#" class="book_now">Pesan Tiket</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="single_offers" style="margin-bottom: 50px;">
+                                    <div class="about_thumb" style="margin-bottom: 10px;">
+                                        <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                    </div>
+                                    <h3><b>Simpang Lima Kediri</b></h3>
+                                    <h4>Harga Tiket : Rp. 10000</h4>
+                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
+                                    <br>
+                                    <a href="#" class="book_now">Pesan Tiket</a>
+                                </div>
+                            </div>
+                            
+
+                            {{-- <div class="carousel-item active">
+                                <div class="img-box"><img src="{{ asset('montana-master/img/full-senyum.jpg') }}" alt=""></div>
+                                <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+                                <p class="overview"><b>Paula Wilson</b>, Media Analyst</p>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-box"><img src="{{ asset('montana-master/img/full-senyum.jpg') }}" alt=""></div>
+                                <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                                <p class="overview"><b>Antonio Moreno</b>, Web Developer</p>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="img-box"><img src="{{ asset('montana-master/img/full-senyum.jpg') }}" alt=""></div>
+                                <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
+                                <p class="overview"><b>Michael Holz</b>, Seo Analyst</p>
+                            </div> --}}
+                        </div>
+                        <!-- Carousel controls -->
+                        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Slider Carousel --}}
 
     <!-- forQuery_start -->
     <div class="forQuery">
@@ -152,12 +234,12 @@
                         <div class="row align-items-center justify-content-center">
                             <div class="col-xl-6 col-md-6">
                                 <div class="Query_text">
-                                    <p>For Reservation 0r Query?</p>
+                                    <p>Ingin Memesan Tiket Masif ?</p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-6">
                                 <div class="phone_num">
-                                    <a href="#" class="mobile_no">+10 576 377 4789</a>
+                                    <a href="#" class="mobile_no"><i class="fa fa-phone"> 0812-345-678-90</i></a>
                                 </div>
                             </div>
                         </div>
@@ -168,8 +250,9 @@
     </div>
     <!-- forQuery_end-->
 
-    <!-- instragram_area_start -->
-    <div class="instragram_area">
+
+     <!-- instragram_area_start -->
+     <div class="instragram_area">
         <div class="single_instagram">
             <img src="{{ asset('montana-master/img/instragram/1.png') }}" alt="">
             <div class="ovrelay">
