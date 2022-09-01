@@ -42,21 +42,18 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="rooms.html">rooms</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                        <li><a class="active" href="index.html">Beranda</a></li>
+                                        <li><a href="index.html">Wisata</a></li>
+                                        <li><a href="#">Layanan <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
+                                                <li><a href="blog.html">Pesan Tiket</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                        <li><a href="#">Tentang Kami <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="elements.html">Kontak</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -64,7 +61,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="{{ asset('montana-master/img/logo.png') }}" alt="">
+                                    <img src="{{ asset('montana-master/img/logo-kediri.svg') }}" width="100px" height="auto" alt="">
                                 </a>
                             </div>
                         </div>
@@ -106,7 +103,7 @@
 
     <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg">
-        <h3>blog</h3>
+        <h3>@yield('judul')</h3>
     </div>
     <!-- bradcam_area_end -->
     
@@ -159,14 +156,8 @@
                     </div>
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Newsletter
-                            </h3>
-                            <form action="#" class="newsletter_form">
-                                <input type="text" placeholder="Enter your mail">
-                                <button type="submit">Sign Up</button>
-                            </form>
-                            <p class="newsletter_text">Subscribe newsletter to get updates</p>
+                            <img src="{{ asset('montana-master/img/logo-g20.png') }}" width="100px;">
+                            <img src="{{ asset('montana-master/img/visit-indo.png') }}" width="150px;">
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-@extends('layouts.montana`')
+@extends('layouts.montana')
 
 @section('content')
 <div class="container">
