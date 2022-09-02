@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WisataController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('ajaxLoadJadwalWisata/{id}', [HomeController::class, 'loadSelectBox'])->name('home');
 
-Route::get('/wisata', function () {
-    return view('wisata.dashboard');
-});
+Route::get('/wisata', [WisataController::class, 'index'])->name('wisata.dashboard');
 
 Auth::routes();
 

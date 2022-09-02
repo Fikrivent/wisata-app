@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Wisata;
+use App\Models\PesanTiket;
 use Illuminate\Http\Request;
 
-class WisataController extends Controller
+class PesanTiketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class WisataController extends Controller
     public function index()
     {
         //
-        $wisatas = Wisata::all();
-        return view('wisata.dashboard',compact('wisatas'));
     }
 
     /**
@@ -43,10 +41,10 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Wisata  $wisata
+     * @param  \App\Models\PesanTiket  $pesanTiket
      * @return \Illuminate\Http\Response
      */
-    public function show(Wisata $wisata)
+    public function show(PesanTiket $pesanTiket)
     {
         //
     }
@@ -54,10 +52,10 @@ class WisataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Wisata  $wisata
+     * @param  \App\Models\PesanTiket  $pesanTiket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Wisata $wisata)
+    public function edit(PesanTiket $pesanTiket)
     {
         //
     }
@@ -66,10 +64,10 @@ class WisataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Wisata  $wisata
+     * @param  \App\Models\PesanTiket  $pesanTiket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wisata $wisata)
+    public function update(Request $request, PesanTiket $pesanTiket)
     {
         //
     }
@@ -77,10 +75,10 @@ class WisataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Wisata  $wisata
+     * @param  \App\Models\PesanTiket  $pesanTiket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wisata $wisata)
+    public function destroy(PesanTiket $pesanTiket)
     {
         //
     }

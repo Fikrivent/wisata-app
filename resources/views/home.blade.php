@@ -2,6 +2,42 @@
 
 @section('title-bar','Home Page')
 
+@section('js')
+    <script>
+
+        $('.opsiWisata').on('change', function() {
+            var idWisata = $(this).find(":selected").val();
+            getJadwalWisata(idWisata);
+        });
+
+        function getJadwalWisata(idWisata) 
+        {
+            $.ajax({
+                type: 'GET', //THIS NEEDS TO BE GET
+                url: 'ajaxLoadJadwalWisata/'+idWisata,
+                dataType: 'json',
+                success: function (data) 
+                {
+                    // console.log(data);
+                    $('.opsiJadwalWisata').removeAttr('disabled');
+                    $('.opsiJadwalWisata').empty();
+
+                    $.each(data['data'], function(index, item) {
+                        // console.log(item);
+                        
+                        $('.opsiJadwalWisata').append(
+                            '<option>'+item.hari+', Jam '+ item.jam_awal+' - '+item.jam_akhir+'</option>'
+                        );
+                    });
+                },
+                error:function()
+                { 
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+@endsection
 
 @section('content')
     <!-- slider_area_start -->
@@ -52,11 +88,13 @@
                                 <div class="form-group">
                                     <span class="form-label">Destinasi Wisata</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control">
-                                        <option>Simpang Lima</option>
-                                        <option>Simpang Lima</option>
-                                        <option>Simpang Lima</option>
+                                    <select class="form-control opsiWisata">
+                                        <option>Silahkan Tentukan Destinasi Wisata Anda ...</option>
+                                        @foreach ($wisatas as $w)
+                                        <option value="{{ $w->idwisata }}" style="font-weight: bold;">{{ $w->nama }}</option>
+                                        @endforeach
                                     </select>
+                                    <span class="select-arrow"></span>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +103,8 @@
                                 <div class="form-group">
                                     <span class="form-label">Rencana Jadwal Kunjungan</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control">
-                                        <option>Senin, 19 Agustus 2022 (Jam 07.00 - 12.00)</option>
-                                        <option>Senin, 19 Agustus 2022 (Jam 12.00 - 17.00)</option>
-                                        <option>Senin, 19 Agustus 2022 (Jam 17.00 - 21.00)</option>
+                                    <select class="form-control opsiJadwalWisata" disabled>
+                                        <option>Silahkan Tentukan Destinasi Wisata Terlebih Dahulu ...</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
@@ -78,23 +114,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Dewasa)</span>
-                                    <select class="form-control">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                    <span class="select-arrow"></span>
+                                    <input type="number" class="form-control" name="tiket_dewasa">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Anak)</span>
-                                    <select class="form-control">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                    <span class="select-arrow"></span>
+                                    <input type="number" class="form-control" name="tiket_anak">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -278,3 +304,4 @@
     </div>
     <!-- instragram_area_end -->
 @endsection
+

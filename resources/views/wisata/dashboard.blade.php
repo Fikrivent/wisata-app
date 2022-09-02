@@ -21,51 +21,20 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($wisatas as $w)
                 <div class="col-xl-4 col-md-4">
                     <div class="single_offers" style="margin-bottom: 50px;">
                         <div class="about_thumb">
                             <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
                         </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
+                        <center><h3>{{ $w->nama }}</h3></center>
                         <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
+                            
                         </ul>
                         <a href="#" class="book_now">Pesan Tiket</a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers" style="margin-bottom: 50px;">
-                        <div class="about_thumb">
-                            <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">Pesan Tiket</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers" style="margin-bottom: 50px;">
-                        <div class="about_thumb">
-                            <img src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">Pesan Tiket</a>
-                    </div>
-                </div>c
+                @endforeach
             </div>
         </div>
     </div>

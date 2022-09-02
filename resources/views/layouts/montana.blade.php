@@ -46,8 +46,8 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="http://127.0.0.1:8000/">Beranda</a></li>
-                                        <li><a href="http://127.0.0.1:8000/wisata">Wisata</a></li>
+                                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                                        <li><a href="{{ route('wisata.dashboard') }}">Wisata</a></li>
                                         <li><a href="#">Layanan <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Pesan Tiket</a></li>
