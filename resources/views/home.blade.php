@@ -165,43 +165,45 @@
                         </ol>   
                         <!-- Wrapper for carousel items -->
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="single_offers" style="margin-bottom: 50px;">
-                                    <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                            @foreach ($wst_favorit as $key => $wf)
+                                @if($key == 0)
+                                <div class="carousel-item active">
+                                    <div class="single_offers" style="margin-bottom: 50px;">
+                                        <div class="about_thumb" style="margin-bottom: 10px;">
+                                            <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                        </div>
+                                        <h3><b>{{ $wf->nama }}</b></h3>
+                                        <h4>{{ $wf->informasi }}</h4>
+                                        <br>
+                                        @if($wf->minHarga == $wf->maxHarga)
+                                        <p>Harga tiket Rp. {{ $wf->minHarga }}</p>
+                                        @else
+                                        <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
+                                        @endif
+                                        <br>
+                                        <a href="#" class="book_now">Pesan Tiket</a>
                                     </div>
-                                    <h3><b>Simpang Lima Kediri</b></h3>
-                                    <h4>Harga Tiket : Rp. 5000</h4>
-                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
-                                    <br>
-                                    <a href="#" class="book_now">Pesan Tiket</a>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="single_offers" style="margin-bottom: 50px;">
-                                    <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                @else
+                                <div class="carousel-item">
+                                    <div class="single_offers" style="margin-bottom: 50px;">
+                                        <div class="about_thumb" style="margin-bottom: 10px;">
+                                            <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
+                                        </div>
+                                        <h3><b>{{ $wf->nama }}</b></h3>
+                                        <h4>{{ $wf->informasi }}</h4>
+                                        <br>
+                                        @if($wf->minHarga == $wf->maxHarga)
+                                        <p>Harga tiket Rp. {{ $wf->minHarga }}</p>
+                                        @else
+                                        <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
+                                        @endif
+                                        <br>
+                                        <a href="#" class="book_now">Pesan Tiket</a>
                                     </div>
-                                    <h3><b>Simpang Lima Kediri</b></h3>
-                                    <h4>Harga Tiket : Rp. 15000</h4>
-                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
-                                    <br>
-                                    <a href="#" class="book_now">Pesan Tiket</a>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="single_offers" style="margin-bottom: 50px;">
-                                    <div class="about_thumb" style="margin-bottom: 10px;">
-                                        <img class="carousel img-box" src="{{ asset('montana-master/img/offers/1.png') }}" alt="">
-                                    </div>
-                                    <h3><b>Simpang Lima Kediri</b></h3>
-                                    <h4>Harga Tiket : Rp. 10000</h4>
-                                    <p>Jadwal Buka : 07.00 - 21.00 WIB</p>
-                                    <br>
-                                    <a href="#" class="book_now">Pesan Tiket</a>
-                                </div>
-                            </div>
-                            
+                                @endif
+                            @endforeach
 
                             {{-- <div class="carousel-item active">
                                 <div class="img-box"><img src="{{ asset('montana-master/img/full-senyum.jpg') }}" alt=""></div>

@@ -31,7 +31,7 @@
                         <ul>
                             
                         </ul>
-                        <a href="#" class="book_now">Pesan Tiket</a>
+                        <a href="#" class="book_now">Lihat Detail Wisata</a>
                     </div>
                 </div>
                 @endforeach

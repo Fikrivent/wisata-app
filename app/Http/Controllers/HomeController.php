@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Wisata;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -27,10 +28,14 @@ class HomeController extends Controller
         $wisatas = Wisata::all();
         
         $wst_favorit = Wisata::JOIN('pesan_tiket as p','wisata.idwisata','p.wisata_idwisata')
-        ->SelectRaw('count(wisata.idwisata')
+        ->JOIN('jadwal_has_wisata as jw','wisata.idwisata','jw.wisata_idwisata')
+        ->select(DB::raw('count(p.nomor_tiket) AS total_kunjungan, MIN(jw.tarif) as minHarga, MAX(jw.tarif) as maxHarga'),'wisata.*')
+        ->groupBy('wisata.idwisata')
+        ->orderByRaw('total_kunjungan DESC')
+        ->limit(3)
+        ->get();
 
-
-        return view('home', compact('wisatas'));
+        return view('home', compact('wisatas','wst_favorit'));
 
     }
 
