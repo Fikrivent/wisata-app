@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('montana-master/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('montana-master/css/slicknav.css') }}">
     <link rel="stylesheet" href="{{ asset('montana-master/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('montana-master/css/sweetalert2.min.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -206,6 +207,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas
     <script src="{{ asset('montana-master/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('montana-master/js/plugins.js') }}"></script>
     <script src="{{ asset('montana-master/js/gijgo.min.js') }}"></script>
+    <script src="{{ asset('montana-master/js/sweetalert2.min.js') }}"></script>
 
     <!--contact js-->
     <script src="{{ asset('montana-master/js/contact.js') }}"></script>

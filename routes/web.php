@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PesanTiketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('ajaxLoadJadwalWisata/{id}', [HomeController::class, 'loadSelectBox'])->name('home');
+Route::get('/ajaxLoadJadwalWisata/{id}', [HomeController::class, 'loadSelectBox'])->name('home');
+Route::post('/ajaxLoadCekTiket', [PesanTiketController::class, 'cekTiket'])->name('cekTiket');
 
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata.dashboard');
 

@@ -10,6 +10,112 @@
             getJadwalWisata(idWisata);
         });
 
+        $('.tanggal_pesan').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+            rightIcon: '<span class="fa fa-calendar"></span>'
+            },
+            format: 'yyyy-mm-dd'
+        });
+
+        $('.cek-tiket').on('click', function() {
+
+            var namaWisata = $('.opsiWisata').find(':selected').val();
+            var jamWisata = $('.opsiJamWisata').find(':selected').val();
+            var tiket_dewasa = $('.tiket_dewasa').val();
+            var tiket_anak = $('.tiket_anak').val();
+            var tanggal_pesan = $('.tanggal_pesan').val();
+            var total_tiket = parseInt(tiket_dewasa)+parseInt(tiket_anak);
+
+            // console.log(namaWisata,jamWisata,tiket_anak,tiket_dewasa, tanggal_pesan);
+
+            $.ajax({
+                url: "/ajaxLoadCekTiket",
+                type:"POST",
+                data:{
+                    nama_wisata:namaWisata,
+                    jam_wisata:jamWisata,
+                    tiket_dewasa:tiket_dewasa,
+                    tiket_anak:tiket_anak,
+                    tanggal_pesan: tanggal_pesan,
+                    "_token": "{{ csrf_token() }}"
+                },
+                success:function(data){
+
+                    var jumlahPemesan = data['total_pemesan'];
+                    var kuota = data['kuota'];
+                    var kuota_tersisa = parseInt(kuota[0].kuota);
+
+                    console.log(kuota_tersisa, total_tiket);
+                    
+                    if(jumlahPemesan.length > 0)
+                    {
+                        kuota_tersisa = (parseInt(kuota[0].kuota) - parseInt(jumlahPemesan[0].total_pemesan));
+                    }
+
+                    if(total_tiket <= kuota_tersisa)
+                    {
+                        alertTersedia();
+                    }
+                    else{
+                        alertTidakTersedia();
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        function alertTersedia()
+        {
+            const swalButtons = Swal.mixin({
+            
+            });
+
+            swalButtons.fire({
+                title: 'Tiket Tersedia',
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Lanjutkan Pemesanan',
+                cancelButtonText: 'Batalkan',
+                confirmButtonColor: '#32a852',
+                cancelButtonColor: '#d60f0f',
+                reverseButtons: false
+            }).then((result) => {
+            if (result.isConfirmed) {
+                swalButtons.fire(
+                'Pemesanan Tiket Berhasil !',
+                'Pemesanan Tiket Anda Telah Tersimpan.',
+                'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalButtons.fire(
+                'Dibatalkan',
+                'Pemesanan Tiket Anda Dibatalkan',
+                'error'
+                )
+            }
+            });
+        }
+
+        function alertTidakTersedia()
+        {
+            const swalButtons = Swal.mixin({
+            
+            });
+
+            swalButtons.fire({
+                title: 'Tiket Tidak Tersedia',
+                text: "Mohon maaf, tiket sudah habis",
+                icon: 'error',
+                confirmButtonText: 'Tutup',
+                confirmButtonColor: '#d60f0f',
+            }).then((result) => {
+                
+            });
+        }
+
         function getJadwalWisata(idWisata) 
         {
             $.ajax({
@@ -19,14 +125,14 @@
                 success: function (data) 
                 {
                     // console.log(data);
-                    $('.opsiJadwalWisata').removeAttr('disabled');
-                    $('.opsiJadwalWisata').empty();
+                    $('.opsiJamWisata').removeAttr('disabled');
+                    $('.opsiJamWisata').empty();
 
                     $.each(data['data'], function(index, item) {
                         // console.log(item);
                         
-                        $('.opsiJadwalWisata').append(
-                            '<option>'+item.hari+', Jam '+ item.jam_awal+' - '+item.jam_akhir+'</option>'
+                        $('.opsiJamWisata').append(
+                            '<option value="'+item.idjadwal+'"">'+item.hari+', Jam '+ item.jam_awal+' - '+item.jam_akhir+'</option>'
                         );
                     });
                 },
@@ -82,13 +188,12 @@
                     <div class="form-header">
                         <h2>Pesan Tiket Kunjungan Wisata</h2>
                     </div>
-                    <form>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <span class="form-label">Destinasi Wisata</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control opsiWisata" name="nama_wisata">
+                                    <select class="form-control opsiWisata" style="cursor: pointer;" name="nama_wisata">
                                         <option>Silahkan Tentukan Destinasi Wisata Anda ...</option>
                                         @foreach ($wisatas as $w)
                                         <option value="{{ $w->idwisata }}" style="font-weight: bold;">{{ $w->nama }}</option>
@@ -101,9 +206,17 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <span class="form-label">Rencana Jadwal Kunjungan</span>
+                                    <span class="form-label">Tanggal Kunjungan</span>
+                                    <input type="text" style="cursor: pointer;" class="form-control tanggal_pesan" name="tanggal_pesan">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span class="form-label">Rencana Jam Kunjungan</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control opsiJadwalWisata" name="jadwalWisata" disabled>
+                                    <select class="form-control opsiJamWisata" style="cursor: pointer;" name="jadwalWisata" disabled>
                                         <option>Silahkan Tentukan Destinasi Wisata Terlebih Dahulu ...</option>
                                     </select>
                                     <span class="select-arrow"></span>
@@ -114,22 +227,21 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Dewasa)</span>
-                                    <input type="number" class="form-control" name="tiket_dewasa">
+                                    <input type="number" class="form-control tiket_dewasa" name="tiket_dewasa">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span class="form-label">Jumlah Tiket(Anak)</span>
-                                    <input type="number" class="form-control" name="tiket_anak">
+                                    <input type="number" class="form-control tiket_anak" name="tiket_anak">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-btn">
-                                    <button class="submit-btn glow-button" type="submit">Cek Ketersediaan</button>
+                                    <button class="submit-btn glow-button cek-tiket">Cek Ketersediaan</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div> 
         </div>
