@@ -88,7 +88,7 @@
                                 <div class="form-group">
                                     <span class="form-label">Destinasi Wisata</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control opsiWisata">
+                                    <select class="form-control opsiWisata" name="nama_wisata">
                                         <option>Silahkan Tentukan Destinasi Wisata Anda ...</option>
                                         @foreach ($wisatas as $w)
                                         <option value="{{ $w->idwisata }}" style="font-weight: bold;">{{ $w->nama }}</option>
@@ -103,7 +103,7 @@
                                 <div class="form-group">
                                     <span class="form-label">Rencana Jadwal Kunjungan</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
-                                    <select class="form-control opsiJadwalWisata" disabled>
+                                    <select class="form-control opsiJadwalWisata" name="jadwalWisata" disabled>
                                         <option>Silahkan Tentukan Destinasi Wisata Terlebih Dahulu ...</option>
                                     </select>
                                     <span class="select-arrow"></span>
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-btn">
-                                    <button class="submit-btn glow-button">Cek Ketersediaan</button>
+                                    <button class="submit-btn glow-button" type="submit">Cek Ketersediaan</button>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                                         <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
                                         @endif
                                         <br>
-                                        <a href="#" class="book_now">Pesan Tiket</a>
+                                        <a href="#" class="book_now">Lihat Detail Wisata</a>
                                     </div>
                                 </div>
                                 @else
@@ -199,7 +199,7 @@
                                         <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
                                         @endif
                                         <br>
-                                        <a href="#" class="book_now">Pesan Tiket</a>
+                                        <a href="#" class="book_now">Lihat Detail Wisata</a>
                                     </div>
                                 </div>
                                 @endif
