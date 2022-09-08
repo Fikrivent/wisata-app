@@ -19,6 +19,13 @@ class WisataController extends Controller
         return view('wisata.dashboard',compact('wisatas'));
     }
 
+    public function detail($idWisata)
+    {
+        $wisatas = Wisata::find($idWisata);
+
+        return view('wisata.detail', compact('wisatas'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

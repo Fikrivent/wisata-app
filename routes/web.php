@@ -17,10 +17,13 @@ use App\Http\Controllers\PesanTiketController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/ajaxLoadJadwalWisata/{id}', [HomeController::class, 'loadSelectBox'])->name('home');
+Route::get('/ajaxLoadJadwalWisata/{id}/{tgl_kunjungan}', [HomeController::class, 'loadSelectBox'])->name('home');
 Route::post('/ajaxLoadCekTiket', [PesanTiketController::class, 'cekTiket'])->name('cekTiket');
 
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata.dashboard');
+Route::get('/wisata/detail/{id}', [WisataController::class, 'detail']);
+
+Route::get('/pesantiket', [PesanTiketController::class, 'index'])->name('pesantiket.form');
 
 Auth::routes();
 

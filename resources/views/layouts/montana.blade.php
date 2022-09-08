@@ -51,7 +51,7 @@
                                         <li><a href="{{ route('wisata.dashboard') }}">Wisata</a></li>
                                         <li><a href="#">Layanan <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Pesan Tiket</a></li>
+                                                <li><a href="{{ route('pesantiket.form') }}">Pesan Tiket</a></li>
                                                 <li><a href="blog.html">Rekomendasi Wisata</a></li>
                                             </ul>
                                         </li>

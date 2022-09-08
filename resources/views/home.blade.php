@@ -4,22 +4,30 @@
 
 @section('js')
     <script>
-
-        $('.opsiWisata').on('change', function() {
-            var idWisata = $(this).find(":selected").val();
-            getJadwalWisata(idWisata);
+        function formvalidation()
+        {
+            $("input").prop('required',true);
+            $("select").prop('required',true);
+        }
+        
+        $('.tanggal_pesan').add('.opsiWisata').on('change', function() {
+            var idWisata = $('.opsiWisata').find(":selected").val();
+            var tanggal_kunjungan = $('.tanggal_pesan').val();
+            getJadwalWisata(idWisata,tanggal_kunjungan);
         });
 
+        
         $('.tanggal_pesan').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
             rightIcon: '<span class="fa fa-calendar"></span>'
             },
-            format: 'yyyy-mm-dd'
+            format: 'yyyy-mm-dd',
         });
 
         $('.cek-tiket').on('click', function() {
 
+            formvalidation();
             var namaWisata = $('.opsiWisata').find(':selected').val();
             var jamWisata = $('.opsiJamWisata').find(':selected').val();
             var tiket_dewasa = $('.tiket_dewasa').val();
@@ -46,19 +54,21 @@
                     var kuota = data['kuota'];
                     var kuota_tersisa = parseInt(kuota[0].kuota);
 
-                    console.log(kuota_tersisa, total_tiket);
+                    // console.log(kuota_tersisa, total_tiket);
                     
                     if(jumlahPemesan.length > 0)
                     {
                         kuota_tersisa = (parseInt(kuota[0].kuota) - parseInt(jumlahPemesan[0].total_pemesan));
                     }
 
+                    var msg = "Jumlah tiket yang tersedia : "+kuota_tersisa+" Tiket";
+
                     if(total_tiket <= kuota_tersisa)
                     {
-                        alertTersedia();
+                        alertTersedia(msg);
                     }
                     else{
-                        alertTidakTersedia();
+                        alertTidakTersedia(msg);
                     }
                 },
                 error: function(error) {
@@ -67,7 +77,7 @@
             });
         });
 
-        function alertTersedia()
+        function alertTersedia(param)
         {
             const swalButtons = Swal.mixin({
             
@@ -75,6 +85,7 @@
 
             swalButtons.fire({
                 title: 'Tiket Tersedia',
+                text: param,
                 icon: 'success',
                 showCancelButton: true,
                 confirmButtonText: 'Ya, Lanjutkan Pemesanan',
@@ -99,7 +110,7 @@
             });
         }
 
-        function alertTidakTersedia()
+        function alertTidakTersedia(param)
         {
             const swalButtons = Swal.mixin({
             
@@ -107,7 +118,7 @@
 
             swalButtons.fire({
                 title: 'Tiket Tidak Tersedia',
-                text: "Mohon maaf, tiket sudah habis",
+                text: param,
                 icon: 'error',
                 confirmButtonText: 'Tutup',
                 confirmButtonColor: '#d60f0f',
@@ -116,11 +127,11 @@
             });
         }
 
-        function getJadwalWisata(idWisata) 
+        function getJadwalWisata(idWisata, tanggal_kunjungan) 
         {
             $.ajax({
                 type: 'GET', //THIS NEEDS TO BE GET
-                url: 'ajaxLoadJadwalWisata/'+idWisata,
+                url: 'ajaxLoadJadwalWisata/'+idWisata+'/'+tanggal_kunjungan,
                 dataType: 'json',
                 success: function (data) 
                 {
@@ -128,17 +139,27 @@
                     $('.opsiJamWisata').removeAttr('disabled');
                     $('.opsiJamWisata').empty();
 
-                    $.each(data['data'], function(index, item) {
-                        // console.log(item);
-                        
+                    if(data['data'].length > 0)
+                    {
+                        $.each(data['data'], function(index, item) {
+                            // console.log(item);
+                            
+                            $('.opsiJamWisata').append(
+                                '<option value="'+item.idjadwal+'"">'+item.hari+', Jam '+ item.jam_awal+' - '+item.jam_akhir+'</option>'
+                            );
+                        });
+                    }
+                    else{
+                        $('.opsiJamWisata').prop('disabled','true');
                         $('.opsiJamWisata').append(
-                            '<option value="'+item.idjadwal+'"">'+item.hari+', Jam '+ item.jam_awal+' - '+item.jam_akhir+'</option>'
+                                '<option>Tidak ada jadwal kunjungan yang tersedia pada tanggal tersebut</option>'
                         );
-                    });
+                    }
+                    
                 },
-                error:function()
+                error:function(error)
                 { 
-                    console.log(data);
+                    console.log(error);
                 }
             });
         }
@@ -207,7 +228,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <span class="form-label">Tanggal Kunjungan</span>
-                                    <input type="text" style="cursor: pointer;" class="form-control tanggal_pesan" name="tanggal_pesan">
+                                    <input type="text" placeholder="Tentukan Tanggal Rencana Kunjungan Anda..." style="cursor: pointer;" class="form-control tanggal_pesan" name="tanggal_pesan">
                                 </div>
                             </div>
                         </div>
@@ -217,7 +238,7 @@
                                     <span class="form-label">Rencana Jam Kunjungan</span>
                                     {{-- Bagian ini nanti ditambahi library pencarian selectbox --}}
                                     <select class="form-control opsiJamWisata" style="cursor: pointer;" name="jadwalWisata" disabled>
-                                        <option>Silahkan Tentukan Destinasi Wisata Terlebih Dahulu ...</option>
+                                        <option>Silahkan Tentukan Destinasi Wisata dan Tanggal Kunjungan Terlebih Dahulu ...</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
@@ -293,7 +314,7 @@
                                         <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
                                         @endif
                                         <br>
-                                        <a href="#" class="book_now">Lihat Detail Wisata</a>
+                                        <a href="{{ url('wisata/detail/'.$wf->idwisata) }}" class="book_now">Lihat Detail Wisata</a>
                                     </div>
                                 </div>
                                 @else
@@ -311,7 +332,7 @@
                                         <p>Harga tiket mulai dari Rp. {{ $wf->minHarga }} - {{ $wf->maxHarga }}</p>
                                         @endif
                                         <br>
-                                        <a href="#" class="book_now">Lihat Detail Wisata</a>
+                                        <a href="{{ url('wisata/detail/'.$wf->idwisata) }}" class="book_now">Lihat Detail Wisata</a>
                                     </div>
                                 </div>
                                 @endif

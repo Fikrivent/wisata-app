@@ -10,5 +10,5 @@ class Wisata extends Model
     use HasFactory;
 
     protected $table = "wisata";
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'idwisata';
 }

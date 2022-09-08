@@ -39,10 +39,20 @@ class HomeController extends Controller
 
     }
 
-    public function loadSelectBox($id)
+    public function loadSelectBox($id, $tgl_kunjungan)
     {
-        $jadwals = Wisata::JOIN('jadwal_has_wisata as jw','wisata.idwisata','jw.wisata_idwisata')->JOIN('jadwal as j','jw.jadwal_idjadwal','j.idjadwal')
-        ->WHERE('wisata.idwisata','=',$id)->SELECT('j.idjadwal','j.hari','j.jam_awal', 'j.jam_akhir')->get();
+        $timestamp = strtotime($tgl_kunjungan);
+
+        $daynum = date("w", $timestamp); // return index hari ==> 0 is Sunday, 6 is Saturday
+        $hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+        $get_day = $hari[$daynum];
+
+        $jadwals = Wisata::JOIN('jadwal_has_wisata as jw','wisata.idwisata','jw.wisata_idwisata')
+        ->JOIN('jadwal as j','jw.jadwal_idjadwal','j.idjadwal')
+        ->WHERE('j.hari','=',$get_day)
+        ->WHERE('wisata.idwisata','=',$id)
+        ->SELECT('j.idjadwal','j.hari','j.jam_awal', 'j.jam_akhir')
+        ->get();
 
         //dd($jadwals);
         return response()->json(['data' => $jadwals], 200);

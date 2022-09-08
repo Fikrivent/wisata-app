@@ -31,7 +31,7 @@
                         <ul>
                             
                         </ul>
-                        <a href="#" class="book_now">Lihat Detail Wisata</a>
+                        <a href="{{ url('wisata/detail/'.$w->idwisata) }}" class="book_now">Lihat Detail Wisata</a>
                     </div>
                 </div>
                 @endforeach

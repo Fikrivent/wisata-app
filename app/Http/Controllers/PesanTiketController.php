@@ -17,6 +17,8 @@ class PesanTiketController extends Controller
     public function index()
     {
         //
+        $wisatas = Wisata::all();
+        return view('pesantiket.form', compact('wisatas'));
     }
 
     /**
@@ -95,10 +97,10 @@ class PesanTiketController extends Controller
 
         $cekTotalPemesan = PesanTiket::JOIN('wisata as w','pesan_tiket.wisata_idwisata','w.idwisata')
         ->WHERE('w.idwisata','=',$destinasi)
-        ->WHERE('pesan_tiket.tgl_pesan','=',$tanggal_pesan)
+        ->WHERE('pesan_tiket.tgl_kunjungan','=',$tanggal_pesan)
         ->WHERE('pesan_tiket.jadwal_idjadwal','=',$jamWisata)
-        ->SELECT(DB::raw('sum(pesan_tiket.qty_tiket) as total_pemesan, pesan_tiket.jadwal_idjadwal,pesan_tiket.tgl_pesan'))
-        ->groupBy('pesan_tiket.jadwal_idjadwal','pesan_tiket.tgl_pesan')
+        ->SELECT(DB::raw('sum(pesan_tiket.qty_tiket) as total_pemesan, pesan_tiket.jadwal_idjadwal,pesan_tiket.tgl_kunjungan'))
+        ->groupBy('pesan_tiket.jadwal_idjadwal','pesan_tiket.tgl_kunjungan')
         ->get();
 
         $kuota = Wisata::JOIN('jadwal_has_wisata as jw','wisata.idwisata','jw.wisata_idwisata')
