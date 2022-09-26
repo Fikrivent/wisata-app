@@ -158,7 +158,7 @@
                     <div class="col-xl-8 col-md-7 col-lg-9">
                         <p class="copy_right">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas Pariwisata Kota Kediri
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dinas Pariwisata dan Kebudayaan Kota Kediri
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-xl-4 col-md-5 col-lg-3">

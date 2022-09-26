@@ -20,7 +20,7 @@
             </div>
         </div>
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <p style="text-align: justify;">Over time, even the most sophisticated, memory packed computer can begin
                         to run slow if we
                         don’t do something to prevent it. The reason why has less to do with how computers are made
@@ -33,8 +33,12 @@
                         running at its best. You
                         can do this through regular maintenance and PC performance optimization programs</p>
                 </div>
-                <div class="col-md-3">
-                    <a href="#" class="genric-btn info circle" style="font-size: 15px;">Pesan Tiket Sekarang</a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <center><img src="{{ asset($wisatas->gambar) }}" alt="" class="img-fluid"></center>
+                    {{-- <a href="#" class="genric-btn info circle" style="font-size: 15px;">Pesan Tiket Sekarang</a> --}}
                 </div>
             </div>
     </div>
